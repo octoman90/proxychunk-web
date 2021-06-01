@@ -17,7 +17,7 @@
 	},
 	"devDependencies": {
 		"@types/cors": "^2.8.10",
-		"@types/express": "^4.17.11",
+		"@types/express": "^4.17.12",
 		"@types/node": "^14.14.35",
 		"@types/pg": "^7.14.11",
 		"concurrently": "^6.1.0",
