@@ -1,30 +1,24 @@
 # ProxyChunk
-
-ProxyChunk is a web-based open proxy checker and aggregator app.
+ProxyChunk is a web-based open proxy checker and aggregator app. This repository only contains client-side code, server-side code is available in a [separate repository](https://github.com/octoman90/proxychunk-api).
 
 ## Installation
-
 ### Prerequisites
-
 -   Node >=v14.0
--   Yarn
--   PostgreSQL
+-   pnpm (or Yarn, npm, etc.)
 -   Nginx
 
 ### Installation
-
-1. Install [proxyshiva](https://github.com/octoman90/proxyshiva) and make sure it is in your [PATH](<https://en.wikipedia.org/wiki/PATH_(variable)>).
-2. Create a user and a database in PostgreSQL for ProxyChunk to use.
-3. Run `yarn build` command. Your system editor will be opened twice allowing you to change backend and frontend configuration. You can change it later by editing the `backend/.env` and `frontend/.env` files.
-4. Point Nginx to serve files from the `frontend/build` directory using this snippet:
-
+1. Run `pnpm install` command.
+2. Change configuration by editing the `.env` file.
+3. Run `pnpm build` command.
+4. Point Nginx to serve files from the `build` directory using this snippet:
 ```
 server {
 	listen 80;
 	server_name local;
 
 	# Change this to where you have the frontend build directory
-	root /path/to/where/you/have/ProxyChunk/frontend/build;
+	root /path/to/where/you/have/proxychunk-web/build;
 
 	location / {
 		index index.html;
@@ -34,19 +28,10 @@ server {
 ```
 
 ## Running
-
-1. Run PostgreSQL and Nginx.
-2. Run `yarn start` command.
-3. Visit http://localhost:80 and voilà.
-
-## API
-
-You can find OpenAPI documentation [here](https://gitlab.com/man90/proxychunk/-/blob/master/backend/doc/api/openapi.json).
+1. Run Nginx.
 
 ## Contributing
-
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-
 [MIT](LICENSE)

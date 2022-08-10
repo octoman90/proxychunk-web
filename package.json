@@ -1,13 +1,46 @@
 {
-	"name": "proxychunk",
-	"version": "0.1.0",
 	"private": true,
-	"repository": "git@gitlab.com:man90/ProxyChunk.git",
+	"repository": "git@gitlab.com:man90/proxychunk-web.git",
 	"author": "man90 <man90@tuta.io>",
 	"license": "MIT",
-	"description": "A web application that keeps track of public user-submitted proxy servers.",
+	"devDependencies": {
+		"@reduxjs/toolkit": "^1.5.1",
+		"@types/node": "^15.6.1",
+		"@types/react": "^17.0.5",
+		"@types/react-dom": "^17.0.0",
+		"@types/react-redux": "^7.1.24",
+		"@types/react-router-dom": "^5.1.8",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-hot-toast": "^2.0.0",
+		"react-redux": "^7.2.3",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"redaxios": "^0.4.1",
+		"sass": "^1.52.1",
+		"typescript": "^4.1.2"
+	},
 	"scripts": {
-		"build": "./scripts/build.sh",
-		"start": "node ./backend/dist/js/app.js"
+		"build": "react-scripts build",
+		"dev": "react-scripts start",
+		"postinstall": "./scripts/postinstall.sh"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"dependencies": {
+		"csstype": "^3.1.0"
 	}
 }
