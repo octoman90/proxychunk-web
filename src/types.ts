@@ -4,5 +4,5 @@ export interface IProxy {
 	port: number
 	speed: number
 	uptime: number
-	updatedAt: Date,
+	updatedAt: Date
 }
