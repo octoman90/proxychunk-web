@@ -3,5 +3,6 @@ export interface IProxy {
 	address: string
 	port: number
 	speed: number
-	updatedAt: Date
+	uptime: number
+	updatedAt: Date,
 }
