@@ -8,6 +8,10 @@ type Props = {
 
 export default function ProxyList({ proxy }: Props) {
 	const timeDiff = useMemo(() => {
+		if (!proxy.updatedAt) {
+			return "Never"
+		}
+
 		const delta = +new Date() - +new Date(proxy.updatedAt)
 
 		if (delta < 4e4) {
@@ -34,20 +38,8 @@ export default function ProxyList({ proxy }: Props) {
 
 	return (
 		<div className="proxy-list-line">
-			{window.innerHeight > window.innerWidth
-				? <div>{proxy.scheme}://{proxy.address}:{proxy.port}</div>
-				: <>
-					<div>{proxy.scheme}</div>
-					<div>{proxy.address}</div>
-					<div>{proxy.port}</div>
-				</>
-			}
-			<div>
-				{"speed" in proxy
-					? proxy.speed.toFixed(2)
-					: ""
-				}
-			</div>
+			<div>{proxy.address}</div>
+			<div>{proxy.speed ? proxy.speed + "s" : ""}</div>
 			<div>{timeDiff}</div>
 		</div>
 	)

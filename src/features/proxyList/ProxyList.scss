@@ -8,6 +8,11 @@
 
 		div {
 			user-select: all;
+			width: 25%;
+
+			&:first-child {
+				width: 50%;
+			}
 		}
 	}
 
@@ -15,27 +20,13 @@
 		display: flex;
 		justify-content: center;
 		gap: 0.5em;
+
+		button:not([disabled]) {
+			cursor: pointer;
+		}
 	}
 
 	&.mobile {
 		width: 100vw;
-
-		.proxy-list-line div {
-			width: 25%;
-		}
-
-		.proxy-list-line div:first-child {
-			width: 50%;
-		}
-	}
-
-	&:not(.mobile) {
-		.proxy-list-line div {
-			width: 20%;
-		}
-
-		#pagination button:not([disabled]) {
-			cursor: pointer;
-		}
 	}
 }

@@ -11,19 +11,19 @@ const initialState: ProxyListState = {
 }
 
 export const proxyListSlice = createSlice({
-	name: 'proxyList',
+	name: "proxyList",
 	initialState,
 	reducers: {
 		// insertProxies: (state, action: PayloadAction<IProxy[]>) => {
 		// 	action.payload.forEach((proxy) => {
-		// 		state.proxies[`${proxy.scheme}://${proxy.address}:${proxy.port}`] = proxy
+		// 		state.proxies[proxy.address] = proxy
 		// 	})
 		// },
 
 		reinsertProxies: (state, action: PayloadAction<IProxy[]>) => {
 			state.proxies = {}
 			action.payload.forEach((proxy) => {
-				state.proxies[`${proxy.scheme}://${proxy.address}:${proxy.port}`] = proxy
+				state.proxies[proxy.address] = proxy
 			})
 		}
 	}
