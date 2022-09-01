@@ -1,22 +1,21 @@
-import { useState } from 'react'
-
-import ProxyList from '../features/proxyList/ProxyList'
-import SubmissionForm from '../features/submissionForm/SubmissionForm'
-import LoginForm from '../features/loginForm/LoginForm'
+import { useState } from "react"
+import LoginForm from "components/LoginForm"
+import ProxyList from "components/ProxyList"
+import SubmissionForm from "components/SubmissionForm"
 
 export default function App() {
-	const [loggedIn, setLoggedIn] = useState(false)
+	const [loggedIn, setLoggedIn] = useState<boolean>(false)
+
+	if (!loggedIn) {
+		return (
+			<LoginForm loginHandler={l => setLoggedIn(l)} />
+		)
+	}
 
 	return (
-		<div className={`App${window.innerHeight > window.innerWidth ? ' mobile' : ''}`}>
-			{
-				loggedIn
-				? <>
-					<ProxyList goodOnly={ false } />
-					<SubmissionForm />
-				</>
-				: <LoginForm loginHandler={(l: boolean) => setLoggedIn(l)} />
-			}
-		</div>
+		<>
+			<ProxyList goodOnly={false} />
+			<SubmissionForm />
+		</>
 	)
 }

@@ -1,0 +1,44 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	user-select: none;
+	width: 100%;
+
+	[type="checkbox"],
+	label {
+		cursor: pointer;
+	}
+
+	button {
+		width: 10em;
+		align-self: flex-end;
+	}
+}
+
+.header {
+	background-color: #aac2;
+	color: #f8f8f8;
+	padding: 0.5em;
+	text-align: center;
+}
+
+.schemes {
+	display: flex;
+	gap: 1em;
+}
+
+.ipRangeInputs {
+	display: grid;
+	gap: 0.5em 1em;
+	grid-template-columns: 1fr 1em 1fr;
+
+	:first-child {
+		grid-column: 1/4;
+	}
+
+	input[type="text"],
+	input[type="number"] {
+		width: 100%;
+	}
+}

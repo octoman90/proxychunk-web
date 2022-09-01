@@ -1,21 +1,19 @@
 {
 	"private": true,
-	"repository": "git@gitlab.com:man90/proxychunk-web.git",
-	"author": "man90 <man90@tuta.io>",
-	"license": "MIT",
 	"devDependencies": {
-		"@reduxjs/toolkit": "^1.5.1",
+		"@babel/core": ">=7.0.0-0 <8.0.0",
+		"@babel/plugin-syntax-flow": "^7.14.5",
+		"@babel/plugin-transform-react-jsx": "^7.14.9",
 		"@types/node": "^15.6.1",
 		"@types/react": "^17.0.5",
 		"@types/react-dom": "^17.0.0",
-		"@types/react-redux": "^7.1.24",
 		"@types/react-router-dom": "^5.1.8",
+		"csstype": "^3.1.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-hot-toast": "^2.0.0",
-		"react-redux": "^7.2.3",
 		"react-router-dom": "^5.2.0",
-		"react-scripts": "4.0.3",
+		"react-scripts": "5.0.1",
 		"redaxios": "^0.4.1",
 		"sass": "^1.52.1",
 		"typescript": "^4.1.2"
@@ -30,17 +28,12 @@
 	},
 	"browserslist": {
 		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
+			"defaults"
 		],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"dependencies": {
-		"csstype": "^3.1.0"
 	}
 }

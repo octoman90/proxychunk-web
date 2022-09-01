@@ -1,4 +1,4 @@
-export interface IProxy {
+export type Proxy = {
 	address: string
 	speed?: number
 	updatedAt: string

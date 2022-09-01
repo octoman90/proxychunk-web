@@ -1,9 +1,7 @@
-import ProxyList from '../features/proxyList/ProxyList'
+import ProxyList from "components/ProxyList"
 
 export default function App() {
 	return (
-		<div className={`App${window.innerHeight > window.innerWidth ? ' mobile' : ''}`}>
-			<ProxyList goodOnly={ true } />
-		</div>
+		<ProxyList goodOnly={true} />
 	)
 }

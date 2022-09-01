@@ -1,41 +1,49 @@
-import { IProxy } from "../types"
 import axios from "redaxios"
+import type { Proxy } from "types"
+
+type GetProxiesRes = {
+	page: number
+	proxies: Proxy[]
+	totalPages: number
+}
+
+type PostProxiesReq = {
+	addresses: [string, string]
+	ports: [number, number]
+	schemes: Set<string>
+}
+
+type PostLoginReq = {
+	accessCode?: string
+}
+
+const a = axios.create({
+	baseURL: process.env.REACT_APP_API_ENDPOINT,
+	withCredentials: true,
+})
 
 export const api = {
-	getProxies: async (
-		page: number = 0,
-		goodOnly: boolean = true
-	): Promise<{ page: number; totalPages: number; proxies: IProxy[] }> => {
-		return axios
-			.get(`${process.env.REACT_APP_API_ENDPOINT}/proxies`, {
+	getProxies: async (page: number = 0, goodOnly: boolean = true): Promise<GetProxiesRes> => {
+		return a
+			.get("/proxies", {
 				withCredentials: true,
 				params: {
-					page,
 					goodOnly,
-					orderBy: "uptime",
 					order: "asc",
+					orderBy: "uptime",
+					page,
 				},
 			})
-			.then((response) => response.data)
+			.then((response: { data: GetProxiesRes }) => response.data)
 	},
 
-	postProxies: async ({
-		schemes,
-		addresses,
-		ports,
-	}: {
-		schemes: Set<string>
-		addresses: [string, string]
-		ports: [number, number]
-	}): Promise<any> => {
-		return await axios.post(
-			`${process.env.REACT_APP_API_ENDPOINT}/proxies`,
-			{ schemes: Array.from(schemes), addresses, ports },
-			{ withCredentials: true }
-		)
+	postProxies: async ({ addresses, ports, schemes }: PostProxiesReq): Promise<{}> => {
+		const body = { schemes: Array.from(schemes), addresses, ports }
+		return a.post("/proxies", body)
 	},
 
-	login: async ({ accessCode }: { accessCode?: string } = {}): Promise<any> => {
-		return axios.post(`${process.env.REACT_APP_API_ENDPOINT}/login`, { accessCode }, { withCredentials: true })
+	login: async ({ accessCode }: PostLoginReq = {}): Promise<{}> => {
+		const body = { accessCode }
+		return a.post("/login", body)
 	},
 }

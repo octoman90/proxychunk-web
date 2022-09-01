@@ -1,0 +1,47 @@
+.root {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 100%;
+}
+
+.list {
+	width: 100%;
+}
+
+.line,
+.headerLine {
+	display: grid;
+
+	& > * {
+		padding: 0.5em;
+	}
+}
+
+.line {
+	opacity: 0.9;
+
+	&:nth-child(odd) {
+		background-color: #8881;
+	}
+}
+
+.headerLine {
+	background-color: #aac2;
+	color: #f8f8f8;
+}
+
+@media only screen and (max-width: 999px) {
+	.line,
+	.headerLine {
+		grid-template-columns: 4fr 1fr 2fr;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.line,
+	.headerLine {
+		grid-template-columns: 1fr 5em 10em;
+	}
+}

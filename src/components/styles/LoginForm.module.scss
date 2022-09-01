@@ -1,0 +1,13 @@
+.root {
+	display: grid;
+	gap: 0.5em;
+	grid-template-columns: repeat(2, auto);
+
+	label {
+		grid-column: 1/3;
+	}
+
+	button {
+		cursor: pointer;
+	}
+}
