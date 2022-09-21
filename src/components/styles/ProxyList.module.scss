@@ -35,13 +35,13 @@
 @media only screen and (max-width: 999px) {
 	.line,
 	.headerLine {
-		grid-template-columns: 4fr 1fr 2fr;
+		grid-template-columns: 4fr 1fr 1fr;
 	}
 }
 
 @media only screen and (min-width: 1000px) {
 	.line,
 	.headerLine {
-		grid-template-columns: 1fr 5em 10em;
+		grid-template-columns: 1fr 5em 5em 10em;
 	}
 }

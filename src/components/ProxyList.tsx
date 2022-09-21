@@ -10,14 +10,17 @@ type Params = {
 	goodOnly: boolean
 }
 
-function ProxyLine({ address, speed, updatedAt }: Proxy) {
+function ProxyLine({ address, speed, updatedAt, uptime }: Proxy) {
 	const timeDiff = useMemo(() => getPrettyTimeDelta(new Date(updatedAt)), [updatedAt])
 
 	return (
 		<div className={classes.line}>
 			<div>{address}</div>
+			<div>{100 * (uptime ?? 0) + "%"}</div>
 			<div>{speed ? speed + "s" : ""}</div>
-			<div>{timeDiff}</div>
+			{window.innerWidth > 999 &&
+				<div>{timeDiff}</div>
+			}
 		</div>
 	)
 }
@@ -43,6 +46,7 @@ export default function ProxyList({ goodOnly }: Params) {
 					<div className={classes.list}>
 						<div className={classes.headerLine}>
 							<div>Address</div>
+							<div>Uptime</div>
 							<div>Speed</div>
 							<div>Last check</div>
 						</div>
