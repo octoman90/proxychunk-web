@@ -37,6 +37,9 @@ export default function ProxyList({ goodOnly }: Params) {
 					pages: totalPages,
 				})
 			})
+			.catch((reason: unknown) => {
+				console.error("Failed to fetch proxies list\n", reason)
+			})
 	}, [page, goodOnly])
 
 	return (
