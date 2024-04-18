@@ -31,7 +31,8 @@ export default function ProxyList({ goodOnly }: Params) {
 
 	useEffect(() => {
 		api.getProxies(page, goodOnly)
-			.then(({ proxies, totalPages }) => {
+			.then(({ proxies, totalPages, ...rest }) => {
+				console.log("x", proxies, totalPages, rest)
 				setProxies({
 					list: proxies,
 					pages: totalPages,

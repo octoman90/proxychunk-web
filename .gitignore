@@ -1,4 +1,3 @@
-node_modules
-build
 .env
-pnpm-debug.log*
+*.lockb
+node_modules
