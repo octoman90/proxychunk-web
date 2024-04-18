@@ -1,3 +1,2 @@
 .env
-*.lockb
 node_modules
